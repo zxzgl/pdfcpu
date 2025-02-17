@@ -1,4 +1,4 @@
-module github.com/zxzgl/pdfcpu/pdfcpu
+module github.com/pdfcpu/pdfcpu
 
 go 1.22
 
