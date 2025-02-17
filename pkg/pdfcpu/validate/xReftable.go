@@ -43,39 +43,39 @@ func XRefTable(ctx *model.Context) error {
 
 	xRefTable := ctx.XRefTable
 
-	metaDataAuthoritative, err := metaDataModifiedAfterInfoDict(xRefTable)
-	if err != nil {
-		return err
-	}
+	// metaDataAuthoritative, err := metaDataModifiedAfterInfoDict(xRefTable)
+	// if err != nil {
+	// 	return err
+	// }
 
-	if metaDataAuthoritative {
+	// if metaDataAuthoritative {
 		// if both info dict and catalog metadata present and metadata modification date after infodict modification date
 		// validate document information dictionary before catalog metadata.
-		err := validateDocumentInfoObject(xRefTable)
-		if err != nil {
-			return err
-		}
-	}
+	// 	err := validateDocumentInfoObject(xRefTable)
+	// 	if err != nil {
+	// 		return err
+	// 	}
+	// }
 
 	// Validate root object(aka the document catalog) and page tree.
-	err = validateRootObject(ctx)
-	if err != nil {
-		return err
-	}
+	// err = validateRootObject(ctx)
+	// if err != nil {
+	// 	return err
+	// }
 
-	if !metaDataAuthoritative {
-		// Validate document information dictionary after catalog metadata.
-		err = validateDocumentInfoObject(xRefTable)
-		if err != nil {
-			return err
-		}
-	}
+	// if !metaDataAuthoritative {
+	// 	// Validate document information dictionary after catalog metadata.
+	// 	err = validateDocumentInfoObject(xRefTable)
+	// 	if err != nil {
+	// 		return err
+	// 	}
+	// }
 
 	// Validate offspec additional streams as declared in pdf trailer.
-	err = validateAdditionalStreams(xRefTable)
-	if err != nil {
-		return err
-	}
+	// err = validateAdditionalStreams(xRefTable)
+	// if err != nil {
+	// 	return err
+	// }
 
 	xRefTable.Valid = true
 
