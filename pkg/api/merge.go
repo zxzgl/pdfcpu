@@ -65,7 +65,7 @@ func Merge(destFile string, inFiles []string, w io.Writer, conf *model.Configura
 
 	log.CLI.Println("merging into " + destFile)
 
-	ctxDest, _, _, err := readAndValidate(f, conf, time.Now())
+	ctxDest, _, _, _ := readAndValidate(f, conf, time.Now())
 	if err != nil {
 		return err
 	}
